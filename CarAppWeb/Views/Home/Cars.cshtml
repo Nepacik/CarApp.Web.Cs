@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Cars";
+}
+
+@model CarAppWeb.Dtos.CarAppPagedModel<CarAppWeb.Dtos.CarDto>
+
+<section>
+  <div class="offset-1 col-10 p-5">
+    <div class="color-on-surface">
+      <div *ngIf="allUsersRequest.isData && allUsersRequest.data != null">
+        @if (Model.Elements == null)
+        {
+          <div class="text-center">
+            Empty List
+          </div>
+        }
+        else
+        {
+          <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Model</th>
+              <th scope="col">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Elements)
+            {
+              <tr>
+                <th scope="row">@item.Id.ToString()</th>
+                <td>@item.ModelName</td>
+                <td>@item.Name</td>
+              </tr>
+            }
+            </tbody>
+          </table>
+        }
+      </div>
+
+      <div class="d-flex justify-content-center py-3">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            @if (Model.Elements != null)
+            {
+              @if (Model.Page > 1)
+              {
+                <li class="page-item"><a class="page-link" asp-action="Cars" asp-route-id="@((Model.Page - 1).ToString())" *ngIf="currentPage>1">Previous</a></li>
+              }
+              <li class="page-item"> <a class="page-link">@Model.Page.ToString()</a></li>
+              <li class="page-item"><a class="page-link" asp-action="Cars" asp-route-id="@((Model.Page + 1).ToString())">Next</a></li>
+            }
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

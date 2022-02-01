@@ -1,0 +1,119 @@
+﻿:root {
+    --color-primary: #9bde58;
+    --color-on-surface: #1c1d1f;
+    --color-background: #131617;
+    --color-secondary: #ffffff;
+    --text-color: #ffffff;
+    --text-color-secondary: #7d7d7e;
+    --error-color: #ff3f13;
+}
+
+body {
+    background-color: #141617;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    color: var(--text-color);
+}
+
+.background-dots {
+    height: 600px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    left:0;
+    top: 0;
+
+    filter: blur(8rem);
+    background-image: radial-gradient(circle at 15%, var(--color-primary) 0%, var(--color-background) 14%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#text-secondary {
+    color: var(--text-color-secondary)
+}
+
+#text-primary {
+    color: var(--text-color);
+}
+
+.color-on-surface {
+    background-color: var(--color-on-surface);
+}
+
+.border-color-primary {
+    border-color: var(--color-primary) !important;
+}
+
+.border-color-secondary {
+    border-color: var(--text-color-secondary);
+}
+
+.tr {
+    color: var(--text-color);
+}
+th {
+}
+
+.table-striped > tbody > tr > td, .table-striped > tbody > tr > th {
+    background-color: transparent !important;
+    border-color: var(--text-color-secondary) !important;
+    color: var(--text-color) !important;
+}
+
+.table-striped > thead > tr > th {
+    background-color: var(--color-background);
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+.button-primary {
+    color: var(--color-primary) !important;
+    background-color: transparent !important;
+    border-color:var(--color-primary) !important;
+}
+
+.button-secondary {
+    color: var(--color-primary);
+}
+
+.background-dots-container {
+    align-items: center;
+    position: absolute;
+    z-index: -2;
+}
+
+.background-dot {
+    border-radius: 50%;
+    width: 600px;
+    height: 600px;
+}
+
+#background-dot-one {
+    background-color: crimson;
+}
+
+#background-dot-two {
+    background-color: bisque;
+}
+
+.login-container {
+    background-color: #17181a;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+a.page-link {
+    color: #1c7430;
+}

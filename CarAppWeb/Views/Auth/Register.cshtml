@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+@model RegisterFormViewModel
+<div>
+    <form asp-controller="Auth" asp-action="Register" data-method="POST">
+        <div class="mb-md-5 mt-md-4 pb-3">
+
+            <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+            <p class="text-secondary mb-5">Please enter your login and password!</p>
+
+            <div class="form-outline form-white mb-5 ">
+                <input asp-for="Username" type="login" id="typeLoginX" class="form-control form-control-lg" placeholder="Login">
+                <span asp-validation-for="Username" class="validation-message text-left"></span>
+            </div>
+
+            <div class="form-outline form-white mb-5">
+                <input asp-for="Password" type="password" id="typePasswordX" class="form-control form-control-lg", placeholder="Password">
+                <span asp-validation-for="Password" class="validation-message text-left"></span>
+            </div>
+
+            <div class="form-outline form-white mb-5">
+                <input asp-for="ConfirmPassword" type="password" class="form-control form-control-lg" placeholder="Confirm Password">
+                <span asp-validation-for="ConfirmPassword" class="validation-message text-left"></span>
+            </div>
+
+            <button class="btn button-primary btn-lg px-5" type="submit" (click)="attemptToLogin()">Register</button>
+
+        </div>
+    </form>
+
+    <div>
+        <p class="mb-0">Already registered? <a class="button-secondary fw-bold" asp-controller="Auth" asp-action="Login">Sign in</a></p>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

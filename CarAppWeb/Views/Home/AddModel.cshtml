@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Add model";
+}
+
+@model CarAppWeb.Dtos.CarAppPagedModel<CarAppWeb.Dtos.ModelDto>
+
+<section class="vh-100">
+  <div class="container py-5 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-8">
+        <div class="color-on-surface">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-lg-7 mt-md-4 pb-3">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Add model</h2>
+
+              <div class="form-outline form-white mb-5 ">
+                <input type="text" name="Brand" [(ngModel)]="brandInputText" (ngModelChange)="getBrands()">
+                <select [ngModel]="selectedBrand" (ngModelChange)="setCurrentBrand($event)" name="sel3">
+                  <option [ngValue]="i" *ngFor="let i of brands">{{i.name}}</option>
+                </select>
+              </div>
+
+              <div class="form-outline form-white mb-5 ">
+
+                <input type="text" name="Model" [(ngModel)]="modelInputText">
+              </div>
+
+              <button class="btn button-primary btn-lg px-5" type="submit" (click)="addModel()">Add model</button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
